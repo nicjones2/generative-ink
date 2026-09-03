@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #05050a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+#panel {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 220px;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(20, 20, 30, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #eee;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+#panel.hidden {
+  transform: translateX(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#panel .title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, #7ee8fa, #eec0c6, #ffd97a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.group {
+  margin-bottom: 14px;
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+}
+
+.moods {
+  display: flex;
+  gap: 6px;
+}
+
+.mood-btn {
+  flex: 1;
+  padding: 6px 4px;
+  font-size: 11px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ddd;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.mood-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.mood-btn.active {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+  font-weight: 600;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #7ee8fa;
+}
+
+#clearBtn,
+#micBtn {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eee;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+#clearBtn:hover,
+#micBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+#micBtn.active {
+  background: linear-gradient(90deg, #7ee8fa, #eec0c6);
+  color: #111;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.meter {
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7ee8fa, #eec0c6, #ffd97a);
+  transition: width 0.05s linear;
+}
+
+.hint {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.4;
+}
+
+#toggleBtn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(20, 20, 30, 0.55);
+  backdrop-filter: blur(14px);
+  color: #eee;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#toggleBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
